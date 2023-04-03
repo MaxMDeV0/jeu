@@ -3,20 +3,241 @@
     padding: 0;
 }
 body {
-    background: rgb(66, 61, 61);
+    background: #3D3B39;
     font-family: Montserrat;
     color: white;
 }
+h1 {
+    padding-top: 10px;
+    padding-left: 60px;
+    padding-right: 60px;
+    text-align: center;
+    font-family: Montserrat;
+    color: white;
+
+}
+main{
+    width: 500px;
+    margin: auto;
+}
+.boutton{
+    position: fixed;
+    width: 40px;
+    left: 15px;
+    top: 15px;
+}
+.player{
+    font-size: 20px;
+}
+
+.reset{
+    position: absolute;
+    left: 500px;
+    top: 500px;
+    height: 100px;
+    width: 100px;
+}
+
+/*  */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    padding-left: 3%;
+    padding-right: 3%;
+    flex-direction: row;
+}
+.chessboard{
+    border-radius: 10px;
+    width: 85vmin;
+    max-width: 800px;
+    min-width: 200px;
+    position: relative;
+    aspect-ratio: 1/1;
+    background-image: url(phprnyp9x.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.gameReview{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 5%;
+    height: 95%;
+    width: 30%;
+    min-width: 300px;
+    background-color: #272522;
+}
+.endGameReview{
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-left: 5%;
+    height:30%;
+    width: 30%;
+    min-width: 300px;
+    background-color: #272522;
+    border-color: white;
+    border: solid;
+    box-shadow:  2px 2px 15px rgba(0, 0, 0, 0.4);
+
+}
+
+/* breakpoint */
+
+@media only screen and (max-width: 1200px) {
+}
+@media only screen and (max-width: 992px) {
+    .menu{
+        display: none;
+    }
+
+
+}
+@media only screen and (max-width: 768px) {
+    .container{
+        flex-direction: column;
+        height: 80vh;
+        min-height: 700px;
+        margin-top: 10%;
+
+    }
+    .gameReview{
+        width: 90%;
+        height: 30%;
+        margin-left: 0;
+        margin-top: 5%;
+        min-height: 200px;
+        max-width: 500px;
+    }
+    .chessboard{
+        max-width:500px;
+    }
+
+} 
+
+@media only screen and (max-width: 600px) {
+    .container{
+        margin-top: 5%;
+        min-height: 0;
+    }
+    h1{
+        font-size: 25px;
+    }
+
+} 
+
+
+
+
+
+.whiteplayer{
+    display: flex;
+    font-size: 20px;
+}
+.blackplayer{
+    display:none;
+    font-size: 20px;
+}
+.whitesquare{
+    width: 20px;
+    height: 20px;
+    border: solid;
+    border-color: #3D3B39;
+    background-color: aliceblue;
+    margin-left: 15px;
+    border-radius: 3px;
+}
+.blacksquare{
+    width: 20px;
+    height: 20px;
+    border: solid;
+    border-radius: 3px;
+    border-color: aliceblue;
+    background-color: #3D3B39;
+    margin-left: 15px;
+}
+
+.case{
+    border: none;
+    position: absolute;
+    width: 12.5%;
+    height: 12.5%;
+    background: transparent;
+    bottom: var(--y);
+    left:var(--x);
+}
+.pionBlanc{
+    height: 12.5%;
+    position: absolute;
+    bottom: var(--y);
+    left:var(--x);
+
+}
+.PromotedPiece{
+    width: 100%;
+    position: absolute;
+    bottom: var(--y);
+}
+.whitePromotion{
+    background-color: white;
+    height: 50%;
+    width: 12.5%;
+    position: absolute;
+    left:var(--x);
+    border-radius: 10px;
+    box-shadow:  2px 2px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    display: none;
+}
+.blackPromotion{
+    bottom: 0;
+    background-color: white;
+    height: 50%;
+    width: 12.5%;
+    position: absolute;
+    left:var(--x);
+    border-radius: 10px;
+    box-shadow:  2px 2px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    display: none;
+}
+
+
+.pionNoir{
+    height: 12.5%;
+    position: absolute;
+    bottom: var(--y);
+    left:var(--x);
+
+}
+#b00{
+    visibility: hidden;
+}
+
+.mort{
+    display: none;
+}
+
+
+/* side bar */
+
 .sidebar header{
     margin-left: 15px;
     margin-top: 15px;
 }
 .sidebar{
+    z-index: 1;
     position: fixed;
     left: -250px;
     width: 250px;
     height: 100%;
-    background: rgb(37, 34, 34);
+    background: #272522;
     transition: .2s;
 }
 .sidebar ul a{
@@ -40,21 +261,6 @@ span{
     width: 30px;
     vertical-align: middle;
 }
-h1 {
-    margin-left: 500px;
-    font-family: Montserrat;
-    color: white;
-}
-main{
-    width: 500px;
-    margin: auto;
-}
-.boutton{
-    position: fixed;
-    width: 40px;
-    left: 15px;
-    top: 15px;
-}
 .menu{
     position: fixed;
     width: 120px;
@@ -66,1114 +272,4 @@ main{
 }
 #check:checked ~ .sidebar{
     left: 0;
-}
-.board img{
-    display: block;
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
-}
-.player{
-    position: absolute;
-    right: 5%;
-    top: 25%;
-}
-.pionsBlancs button{
-    position: absolute;
-    display: none;
-}
-.pionsNoirs button{
-    position: absolute;
-    display: none;
-}
-.reset{
-    position: absolute;
-    left: 500px;
-    top: 500px;
-    height: 100px;
-    width: 100px;
-}
-
-/* plateau*/
-.chessboard{
-    position: absolute;
-    margin-top: 30px;
-    left: 700px;
-    width: 800px;
-    height: 800px;
-    background-image: url(phprnyp9x.png);
-    background-repeat: no-repeat;
-    background-size: 800px;
-}
-
-
-/* cases bouton*/
-
-/*A*/
-
-#a01{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    background: transparent;
-    
-}
-#a02{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    background: transparent;
-}
-#a03{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    background: transparent;
-}
-#a04{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    background: transparent;
-}
-#a05{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    background: transparent;
-}
-#a06{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    background: transparent;
-}
-#a07{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    background: transparent;
-}
-#a08{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: transparent;
-}
-
-/*B*/
-
-#a11{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 100px;
-    background: transparent; 
-}
-#a12{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 100px;
-    background: transparent;
-}
-#a13{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 100px;
-    background: transparent;
-}
-#a14{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 100px;
-    background: transparent;
-}
-#a15{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 100px;
-    background: transparent;
-}
-#a16{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 100px;
-    background: transparent;
-}
-#a17{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 100px;
-    background: transparent;
-}
-#a18{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 100px;
-    background: transparent;
-}
-
-/*C*/
-
-#a21{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 200px;
-    background: transparent; 
-}
-#a22{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 200px;
-    background: transparent;
-}
-#a23{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 200px;
-    background: transparent;
-}
-#a24{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 200px;
-    background: transparent;
-}
-#a25{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 200px;
-    background: transparent;
-}
-#a26{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 200px;
-    background: transparent;
-}
-#a27{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 200px;
-    background: transparent;
-}
-#a28{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 200px;
-    background: transparent;
-}
-
-/*D*/
-
-#a31{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 300px;
-    background: transparent; 
-}
-#a32{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 300px;
-    background: transparent;
-}
-#a33{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 300px;
-    background: transparent;
-}
-#a34{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 300px;
-    background: transparent;
-}
-#a35{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 300px;
-    background: transparent;
-}
-#a36{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 300px;
-    background: transparent;
-}
-#a37{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 300px;
-    background: transparent;
-}
-#a38{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 300px;
-    background: transparent;
-}
-
-/*E*/
-
-#a41{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 400px;
-    background: transparent; 
-}
-#a42{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 400px;
-    background: transparent;
-}
-#a43{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 400px;
-    background: transparent;
-}
-#a44{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 400px;
-    background: transparent;
-}
-#a45{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 400px;
-    background: transparent;
-}
-#a46{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 400px;
-    background: transparent;
-}
-#a47{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 400px;
-    background: transparent;
-}
-#a48{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 400px;
-    background: transparent;
-}
-
-/*F*/
-
-#a51{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 500px;
-    background: transparent; 
-}
-#a52{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 500px;
-    background: transparent;
-}
-#a53{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 500px;
-    background: transparent;
-}
-#a54{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 500px;
-    background: transparent;
-}
-#a55{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 500px;
-    background: transparent;
-}
-#a56{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 500px;
-    background: transparent;
-}
-#a57{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 500px;
-    background: transparent;
-}
-#a58{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 500px;
-    background: transparent;
-}
-
-/*G*/
-
-#a61{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 600px;
-    background: transparent; 
-}
-#a62{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 600px;
-    background: transparent;
-}
-#a63{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 600px;
-    background: transparent;
-}
-#a64{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 600px;
-    background: transparent;
-}
-#a65{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 600px;
-    background: transparent;
-}
-#a66{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 600px;
-    background: transparent;
-}
-#a67{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 600px;
-    background: transparent;
-}
-#a68{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 600px;
-    background: transparent;
-}
-
-/*H*/
-
-#a71{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 700px;
-    left: 700px;
-    background: transparent; 
-}
-#a72{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 600px;
-    left: 700px;
-    background: transparent;
-}
-#a73{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 500px;
-    left: 700px;
-    background: transparent;
-}
-#a74{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 400px;
-    left: 700px;
-    background: transparent;
-}
-#a75{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 300px;
-    left: 700px;
-    background: transparent;
-}
-#a76{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 200px;
-    left: 700px;
-    background: transparent;
-}
-#a77{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    top: 100px;
-    left: 700px;
-    background: transparent;
-}
-#a78{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    left: 700px;
-    background: transparent;
-}
-
-
-
-/* pions blancs*/
-
-#pion1{
-    position: absolute;
-    height: 100px;
-}
-#pion2{
-    position: absolute;
-    height: 100px;
-}
-#pion3{
-    position: absolute;
-    height: 100px;
-}
-#pion4{
-    position: absolute;
-    height: 100px;
-}
-#pion5{
-    position: absolute;
-    height: 100px;
-}
-#pion6{
-    position: absolute;
-    height: 100px;
-}
-#pion7{
-    position: absolute;
-    height: 100px;
-}
-#pion8{
-    position: absolute;
-    height: 100px;
-}
-#tour1{
-    position: absolute;
-    height: 100px;
-}
-#tour2{
-    position: absolute;
-    height: 100px;
-}
-#cav1{
-    position: absolute;
-    height: 100px;
-}
-#cav2{
-    position: absolute;
-    height: 100px;
-}
-#fou1{
-    position: absolute;
-    height: 100px;
-}
-#fou2{
-    position: absolute;
-    height: 100px;
-}
-#roi1{
-    position: absolute;
-    height: 100px;
-}
-#reine1{
-    position: absolute;
-    height: 100px;
-}
-#reine3{
-    position: absolute;
-    height: 100px;
-}
-#reine4{
-    position: absolute;
-    height: 100px;
-}
-#reine5{
-    position: absolute;
-    height: 100px;
-}
-#reine6{
-    position: absolute;
-    height: 100px;
-}
-#reine7{
-    position: absolute;
-    height: 100px;
-}
-#reine8{
-    position: absolute;
-    height: 100px;
-}
-#reine9{
-    position: absolute;
-    height: 100px;
-}
-#reine10{
-    position: absolute;
-    height: 100px;
-}
-
-
-/* pions noirs */
-
-#pion9{
-    position: absolute;
-    height: 100px;
-}
-#pion10{
-    position: absolute;
-    height: 100px;
-}
-#pion11{
-    position: absolute;
-    height: 100px;
-}
-#pion12{
-    position: absolute;
-    height: 100px;
-}
-#pion13{
-    position: absolute;
-    height: 100px;
-}
-#pion14{
-    position: absolute;
-    height: 100px;
-}
-#pion15{
-    position: absolute;
-    height: 100px;
-}
-#pion16{
-    position: absolute;
-    height: 100px;
-}
-#tour3{
-    position: absolute;
-    height: 100px;
-}
-#tour4{
-    position: absolute;
-    height: 100px;
-}
-#cav3{
-    position: absolute;
-    height: 100px;
-}
-#cav4{
-    position: absolute;
-    height: 100px;
-}
-#fou3{
-    position: absolute;
-    height: 100px;
-}
-#fou4{
-    position: absolute;
-    height: 100px;
-}
-#roi2{
-    position: absolute;
-    height: 100px;
-}
-#reine2{
-    position: absolute;
-    height: 100px;
-}
-#reine11{
-    position: absolute;
-    height: 100px;
-}
-#reine12{
-    position: absolute;
-    height: 100px;
-}
-#reine13{
-    position: absolute;
-    height: 100px;
-}
-#reine14{
-    position: absolute;
-    height: 100px;
-}
-#reine15{
-    position: absolute;
-    height: 100px;
-}
-#reine16{
-    position: absolute;
-    height: 100px;
-}
-#reine17{
-    position: absolute;
-    height: 100px;
-}
-#reine18{
-    position: absolute;
-    height: 100px;
-}
-
-/* position des pions sur le plateau*/
-
-/*A*/
-
-.a00{
-    visibility: hidden;
-}
-.a01{
-    position: absolute;
-    top: 700px;
-}
-.a02{
-    position: absolute;
-    top: 600px;
-}
-.a03{
-    position: absolute;
-    top: 500px;
-}
-.a04{
-    position: absolute;
-    top: 400px;
-}
-.a05{
-    position: absolute;
-    top: 300px;
-}
-.a06{
-    position: absolute;
-    top: 200px;
-}
-.a07{
-    position: absolute;
-    top: 100px;
-}
-.a08{
-    position: absolute;
-    top: 0px;
-}
-
-/*B*/
-
-.a11{
-    position: absolute;
-    top: 700px;
-    left: 100px;
-}
-.a12{
-    position: absolute;
-    top: 600px;
-    left: 100px;
-}
-.a13{
-    position: absolute;
-    top: 500px;
-    left: 100px;
-}
-.a14{
-    position: absolute;
-    top: 400px;
-    left: 100px;
-}
-.a15{
-    position: absolute;
-    top: 300px;
-    left: 100px;
-}
-.a16{
-    position: absolute;
-    top: 200px;
-    left: 100px;
-}
-.a17{
-    position: absolute;
-    top: 100px;
-    left: 100px;
-}
-.a18{
-    position: absolute;
-    top: 0px;
-    left: 100px;
-}
-
-/*C*/
-
-.a21{
-    position: absolute;
-    top: 700px;
-    left: 200px;
-}
-.a22{
-    position: absolute;
-    top: 600px;
-    left: 200px;
-}
-.a23{
-    position: absolute;
-    top: 500px;
-    left: 200px;
-}
-.a24{
-    position: absolute;
-    top: 400px;
-    left: 200px;
-}
-.a25{
-    position: absolute;
-    top: 300px;
-    left: 200px;
-}
-.a26{
-    position: absolute;
-    top: 200px;
-    left: 200px;
-}
-.a27{
-    position: absolute;
-    top: 100px;
-    left: 200px;
-}
-.a28{
-    position: absolute;
-    top: 0px;
-    left: 200px;
-}
-
-/*D*/
-
-.a31{
-    position: absolute;
-    top: 700px;
-    left: 300px;
-}
-.a32{
-    position: absolute;
-    top: 600px;
-    left: 300px;
-}
-.a33{
-    position: absolute;
-    top: 500px;
-    left: 300px;
-}
-.a34{
-    position: absolute;
-    top: 400px;
-    left: 300px;
-}
-.a35{
-    position: absolute;
-    top: 300px;
-    left: 300px;
-}
-.a36{
-    position: absolute;
-    top: 200px;
-    left: 300px;
-}
-.a37{
-    position: absolute;
-    top: 100px;
-    left: 300px;
-}
-.a38{
-    position: absolute;
-    top: 0px;
-    left: 300px;
-}
-
-/*E*/
-
-.a41{
-    position: absolute;
-    top: 700px;
-    left: 400px;
-}
-.a42{
-    position: absolute;
-    top: 600px;
-    left: 400px;
-}
-.a43{
-    position: absolute;
-    top: 500px;
-    left: 400px;
-}
-.a44{
-    position: absolute;
-    top: 400px;
-    left: 400px;
-}
-.a45{
-    position: absolute;
-    top: 300px;
-    left: 400px;
-}
-.a46{
-    position: absolute;
-    top: 200px;
-    left: 400px;
-}
-.a47{
-    position: absolute;
-    top: 100px;
-    left: 400px;
-}
-.a48{
-    position: absolute;
-    top: 0px;
-    left: 400px;
-}
-
-/*F*/
-
-.a51{
-    position: absolute;
-    top: 700px;
-    left: 500px;
-}
-.a52{
-    position: absolute;
-    top: 600px;
-    left: 500px;
-}
-.a53{
-    position: absolute;
-    top: 500px;
-    left: 500px;
-}
-.a54{
-    position: absolute;
-    top: 400px;
-    left: 500px;
-}
-.a55{
-    position: absolute;
-    top: 300px;
-    left: 500px;
-}
-.a56{
-    position: absolute;
-    top: 200px;
-    left: 500px;
-}
-.a57{
-    position: absolute;
-    top: 100px;
-    left: 500px;
-}
-.a58{
-    position: absolute;
-    top: 0px;
-    left: 500px;
-}
-
-/*G*/
-
-.a61{
-    position: absolute;
-    top: 700px;
-    left: 600px;
-}
-.a62{
-    position: absolute;
-    top: 600px;
-    left: 600px;
-}
-.a63{
-    position: absolute;
-    top: 500px;
-    left: 600px;
-}
-.a64{
-    position: absolute;
-    top: 400px;
-    left: 600px;
-}
-.a65{
-    position: absolute;
-    top: 300px;
-    left: 600px;
-}
-.a66{
-    position: absolute;
-    top: 200px;
-    left: 600px;
-}
-.a67{
-    position: absolute;
-    top: 100px;
-    left: 600px;
-}
-.a68{
-    position: absolute;
-    top: 0px;
-    left: 600px;
-}
-
-/*H*/
-
-.a71{
-    position: absolute;
-    top: 700px;
-    left: 700px;
-}
-.a72{
-    position: absolute;
-    top: 600px;
-    left: 700px;
-}
-.a73{
-    position: absolute;
-    top: 500px;
-    left: 700px;
-}
-.a74{
-    position: absolute;
-    top: 400px;
-    left: 700px;
-}
-.a75{
-    position: absolute;
-    top: 300px;
-    left: 700px;
-}
-.a76{
-    position: absolute;
-    top: 200px;
-    left: 700px;
-}
-.a77{
-    position: absolute;
-    top: 100px;
-    left: 700px;
-}
-.a78{
-    position: absolute;
-    top: 0px;
-    left: 700px;
-}
-
-/**/
-.mort{
-    display: none;
 }
